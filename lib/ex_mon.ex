@@ -1,5 +1,5 @@
 defmodule ExMon do
-  alias ExMon.{Game, Player, Game.Status}
+  alias ExMon.{Game, Game.Actions, Game.Status, Player}
 
   @computer_name "Rasputin"
 
@@ -15,4 +15,18 @@ defmodule ExMon do
     Status.print_round_message()
   end
 
+  def make_move(move) do
+    move
+    |> Actions.fetch_move()
+    |> do_move()
+  end
+
+  defp do_move({:error, move}), do: Status.print_wrong_move_message(move)
+
+  defp do_move({:ok, move}) do
+    case move do
+      :heal -> "Heal Player"
+      move -> Actions.attack(move)
+    end
+  end
 end
