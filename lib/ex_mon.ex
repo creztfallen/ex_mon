@@ -12,7 +12,7 @@ defmodule ExMon do
     |> create_player(:laser_beam, :missile_strike, :mechanical_repair)
     |> Game.start(player)
 
-    Status.print_round_message()
+    Status.print_round_message(Game.info())
   end
 
   def make_move(move) do
@@ -28,5 +28,7 @@ defmodule ExMon do
       :heal -> "Heal Player"
       move -> Actions.attack(move)
     end
+
+    Status.print_round_message(Game.info())
   end
 end
