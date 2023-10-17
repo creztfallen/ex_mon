@@ -4,7 +4,7 @@ defmodule ExMon do
   @computer_name "Rasputin"
 
   def create_player(name, avg_move, rnd_move, heal) do
-    Player.build(name, rnd_move, avg_move, heal)
+    Player.build(name, avg_move, rnd_move, heal)
   end
 
   def start_game(player) do
