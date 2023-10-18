@@ -26,6 +26,8 @@ defmodule ExMon.Game.Actions.Heal do
   defp update_game(player_data, player, life) do
     Game.info()
     |> Map.put(player, player_data)
-    |> Game.update(Status.print_move_message(player, :heal, life))
+    |> Game.update()
+
+    Status.print_move_message(player, :heal, life)
   end
 end
