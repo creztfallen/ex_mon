@@ -3,6 +3,7 @@ defmodule ExMon do
 
   @computer_name "Rasputin"
   @computer_moves [:avg_move, :rnd_move, :heal]
+  @computer_moves_low_health [:avg_move, :rnd_move, :heal, :heal]
 
   def create_player(name, avg_move, rnd_move, heal) do
     Player.build(name, avg_move, rnd_move, heal)
